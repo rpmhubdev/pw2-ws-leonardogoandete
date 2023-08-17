@@ -22,7 +22,6 @@ public class Start {
     @Produces(MediaType.APPLICATION_JSON)
     public NosParaKm nosParaKm(@PathParam("nos") double nos) {
         NosParaKm nosParaKm = new NosParaKm();
-        //nosParaKm.setUnidade("km");
         nosParaKm.setValor(nos*FATOR_CONVERSAO_NOS);
         return nosParaKm;
     }
