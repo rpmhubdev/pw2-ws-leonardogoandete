@@ -21,9 +21,7 @@ public class Start {
     @Path("/nos/{nos}")
     @Produces(MediaType.APPLICATION_JSON)
     public NosParaKm nosParaKm(@PathParam("nos") double nos) {
-        NosParaKm nosParaKm = new NosParaKm();
-        nosParaKm.setValor(nos*FATOR_CONVERSAO_NOS);
-        return nosParaKm;
+        return new NosParaKm(nos*FATOR_CONVERSAO_NOS);
     }
 
     @POST
