@@ -18,17 +18,20 @@ public class Start {
     }
 
     @GET
-    @Path("/nos/{nos}")
+    @Path("/no2kmh/{nos}")
     @Produces(MediaType.APPLICATION_JSON)
     public NosParaKm nosParaKm(@PathParam("nos") double nos) {
         return new NosParaKm(nos*FATOR_CONVERSAO_NOS);
     }
 
     @POST
-    @Path("/km/{km}")
+    @Path("/kmh2mih")
     @Produces(MediaType.TEXT_PLAIN)
-    @Consumes(MediaType.TEXT_PLAIN)
-    public String kmParaMilhas(@PathParam("km") double km) {
-        return String.valueOf(km*FATOR_CONVERSAO_MILHAS);
+    @Consumes("application/x-www-form-urlencoded; charset=utf-8")
+    public String kmParaMilhas(@FormParam("kmh") double kmh) {
+        return String.valueOf(kmh*FATOR_CONVERSAO_MILHAS);
     }
+
+
+    //usar testes: https://medium.com/experiencecode/usando-records-em-java-9afecf7495b3
 }
