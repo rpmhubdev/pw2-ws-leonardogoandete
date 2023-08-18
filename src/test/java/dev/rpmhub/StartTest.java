@@ -4,6 +4,7 @@ import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
@@ -32,7 +33,7 @@ public class StartTest {
             .post("/api/kmh2mih")
         .then()
             .statusCode(200)
-            .body(is("0.621"));
+            .body(is("0.621371"));
     }
 
      /**
@@ -46,7 +47,7 @@ public class StartTest {
             .get("/api/no2kmh/1")
         .then()
             .statusCode(200)
-            .body(is("1.852"));
+            .body(is(containsString("\"valor\":1.852")));
     }
 
 }
